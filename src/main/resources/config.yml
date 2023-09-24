@@ -12,8 +12,8 @@
 #   for these worlds to prevent advancement announcements in these worlds. If you remove
 #   a world from this list, you have to manually set that world's gamerule.
 worlds:
-  - creative
-  - lobby
-  - hub
+#  - creative
+#  - lobby
+#  - hub
 
 # This plugin might have some problems
