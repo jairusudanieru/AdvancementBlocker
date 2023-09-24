@@ -18,8 +18,8 @@ public final class AdvancementBlocker extends JavaPlugin implements Listener {
         saveDefaultConfig();
         checkWorlds();
         Bukkit.getPluginManager().registerEvents(new PlayerAdvancement(), this);
-        Objects.requireNonNull(Bukkit.getPluginCommand("advblock")).setExecutor(new Command());
-        Objects.requireNonNull(Bukkit.getPluginCommand("advblock")).setTabCompleter(new Command());
+        Objects.requireNonNull(Bukkit.getPluginCommand("advblock")).setExecutor(new Command(this));
+        Objects.requireNonNull(Bukkit.getPluginCommand("advblock")).setTabCompleter(new Command(this));
         Bukkit.getLogger().info("[AdvancementBlocker] Created by @jairusu");
         Bukkit.getLogger().info("[AdvancementBlocker] Successfully Enabled!");
     }

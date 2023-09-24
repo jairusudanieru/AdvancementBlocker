@@ -5,7 +5,6 @@ import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
 import org.bukkit.command.TabCompleter;
 import org.bukkit.entity.Player;
-import org.bukkit.plugin.java.JavaPlugin;
 import org.jetbrains.annotations.NotNull;
 import plugin.advancementblocker.AdvancementBlocker;
 
@@ -15,8 +14,10 @@ import java.util.List;
 
 public class Command implements TabCompleter, CommandExecutor {
 
-    private final AdvancementBlocker advancementBlocker = new AdvancementBlocker();
-    private final JavaPlugin plugin = JavaPlugin.getPlugin(AdvancementBlocker.class);
+    private final AdvancementBlocker plugin;
+    public Command(AdvancementBlocker plugin) {
+        this.plugin = plugin;
+    }
 
     @Override
     public List<String> onTabComplete(@NotNull CommandSender sender, @NotNull org.bukkit.command.Command command, @NotNull String alias, String[] args) {
@@ -35,7 +36,7 @@ public class Command implements TabCompleter, CommandExecutor {
     public boolean onCommand(@NotNull CommandSender sender, @NotNull org.bukkit.command.Command command, @NotNull String label, String[] args) {
         if (args.length == 1 && args[0].equals("reload")) {
             plugin.reloadConfig();
-            advancementBlocker.checkWorlds();
+            plugin.checkWorlds();
             Player player = (Player) sender;
             player.sendMessage(Color.LIME + "Config successfully reloaded!");
             return true;
