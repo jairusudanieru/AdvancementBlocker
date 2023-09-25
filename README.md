@@ -26,3 +26,6 @@ worlds:
 ```
 
 I got the idea of this plugin from **[Tajam](https://www.spigotmc.org/members/tajam.627607/)**
+
+![icon.png](images%2Ficon.png)
+
