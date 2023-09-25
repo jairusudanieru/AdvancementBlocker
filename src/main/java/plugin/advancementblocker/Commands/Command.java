@@ -1,6 +1,6 @@
 package plugin.advancementblocker.Commands;
 
-import org.bukkit.Color;
+import org.bukkit.ChatColor;
 import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
 import org.bukkit.command.TabCompleter;
@@ -38,7 +38,7 @@ public class Command implements TabCompleter, CommandExecutor {
             plugin.reloadConfig();
             plugin.checkWorlds();
             Player player = (Player) sender;
-            player.sendMessage(Color.LIME + "Config successfully reloaded!");
+            player.sendMessage(ChatColor.GREEN + "Config successfully reloaded!");
             return true;
         }
         return true;
