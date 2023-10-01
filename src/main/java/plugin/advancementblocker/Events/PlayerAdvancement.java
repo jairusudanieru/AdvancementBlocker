@@ -21,11 +21,12 @@ public class PlayerAdvancement implements Listener {
         Player player = event.getPlayer();
         int playerLevel = player.getLevel();
         float playerExp = player.getExp();
+        Advancement advancement = event.getAdvancement();
         String world = player.getWorld().getName();
         List<String> worlds = plugin.getConfig().getStringList("worlds");
+        if (!advancement.getKey().getNamespace().contains("minecraft")) return;
         if (worlds.contains(world)) {
-            Advancement advancement = event.getAdvancement();
-            for (String criteria: advancement.getCriteria()) {
+            for (String criteria : advancement.getCriteria()) {
                 player.getAdvancementProgress(advancement).revokeCriteria(criteria);
             }
             Bukkit.getScheduler().runTaskLater(plugin, () -> {
